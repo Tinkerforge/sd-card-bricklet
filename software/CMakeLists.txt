@@ -23,12 +23,28 @@ INCLUDE_DIRECTORIES(
 	"${PROJECT_SOURCE_DIR}/src/bricklib2/xmclib/XMCLib/inc/"
 	"${PROJECT_SOURCE_DIR}/src/bricklib2/xmclib/CMSIS/Include/"
 	"${PROJECT_SOURCE_DIR}/src/bricklib2/xmclib/CMSIS/Infineon/XMC1400_series/Include/"
+
+	"${PROJECT_SOURCE_DIR}/src/DAVE/"
+	"${PROJECT_SOURCE_DIR}/src/FATFS/"
+	"${PROJECT_SOURCE_DIR}/src/FATFS/ff_Src/"
+	"${PROJECT_SOURCE_DIR}/src/RTC/"
+	"${PROJECT_SOURCE_DIR}/src/SDMMC_BLOCK/"
+	"${PROJECT_SOURCE_DIR}/src/SPI_MASTER/"
 )
 
 # find source files
 SET(SOURCES
 	"${PROJECT_SOURCE_DIR}/src/main.c"
 	"${PROJECT_SOURCE_DIR}/src/communication.c"
+	"${PROJECT_SOURCE_DIR}/src/sd.c"
+
+	"${PROJECT_SOURCE_DIR}/src/SDMMC_BLOCK/sdmmc_block_conf.c"
+	"${PROJECT_SOURCE_DIR}/src/SDMMC_BLOCK/sdmmc_block_private_spi.c"
+	"${PROJECT_SOURCE_DIR}/src/SDMMC_BLOCK/sdmmc_block.c"
+	"${PROJECT_SOURCE_DIR}/src/SPI_MASTER/spi_master_conf.c"
+	"${PROJECT_SOURCE_DIR}/src/SPI_MASTER/spi_master.c"
+	"${PROJECT_SOURCE_DIR}/src/fatfs/ff.c"
+	"${PROJECT_SOURCE_DIR}/src/fatfs/port/diskio.c"
 
 	"${PROJECT_SOURCE_DIR}/src/bricklib2/hal/uartbb/uartbb.c"
 	"${PROJECT_SOURCE_DIR}/src/bricklib2/hal/system_timer/system_timer.c"
@@ -48,6 +64,8 @@ SET(SOURCES
 	"${PROJECT_SOURCE_DIR}/src/bricklib2/xmclib/XMCLib/src/xmc_usic.c"
 	"${PROJECT_SOURCE_DIR}/src/bricklib2/xmclib/XMCLib/src/xmc1_scu.c"
 	"${PROJECT_SOURCE_DIR}/src/bricklib2/xmclib/XMCLib/src/xmc1_flash.c"
+	"${PROJECT_SOURCE_DIR}/src/bricklib2/xmclib/XMCLib/src/xmc1_rtc.c"
+	"${PROJECT_SOURCE_DIR}/src/bricklib2/xmclib/XMCLib/src/xmc_rtc.c"
 )
 
 MESSAGE(STATUS "\nFound following source files:\n ${SOURCES}\n")

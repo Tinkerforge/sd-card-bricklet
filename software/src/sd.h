@@ -1,7 +1,7 @@
 /* sd-card-bricklet
  * Copyright (C) 2022 Olaf Lüke <olaf@tinkerforge.com>
  *
- * main.c: Initialization for SD Card Bricklet
+ * sd.h: SD card handling
  *
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
@@ -19,27 +19,16 @@
  * Boston, MA 02111-1307, USA.
  */
 
-#include <stdio.h>
-#include <stdbool.h>
+#ifndef SD_H
+#define SD_H
 
-#include "configs/config.h"
+typedef struct {
 
-#include "bricklib2/bootloader/bootloader.h"
-#include "bricklib2/hal/system_timer/system_timer.h"
-#include "bricklib2/logging/logging.h"
-#include "communication.h"
-#include "sd.h"
+} SD;
 
-int main(void) {
-	logging_init();
-	logd("Start SD Card Bricklet\n\r");
+extern SD sd;
 
-	communication_init();
-	sd_init();
+void sd_init(void);
+void sd_tick(void);
 
-	while(true) {
-		bootloader_tick();
-		communication_tick();
-		sd_tick();
-	}
-}
+#endif
